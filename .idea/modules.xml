@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/gfax-api/gfax-api.iml" filepath="$PROJECT_DIR$/gfax-api/gfax-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gfax-base/gfax-base.iml" filepath="$PROJECT_DIR$/gfax-base/gfax-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gfax-dao/gfax-dao.iml" filepath="$PROJECT_DIR$/gfax-dao/gfax-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gfax-model/gfax-model.iml" filepath="$PROJECT_DIR$/gfax-model/gfax-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gfax-service/gfax-service.iml" filepath="$PROJECT_DIR$/gfax-service/gfax-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gfax-utils/gfax-utils.iml" filepath="$PROJECT_DIR$/gfax-utils/gfax-utils.iml" />
+    </modules>
+  </component>
+</project>

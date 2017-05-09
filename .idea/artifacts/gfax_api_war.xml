@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="gfax-api:war">
+    <output-path>$PROJECT_DIR$/gfax-api/target</output-path>
+    <root id="archive" name="gfax-api.war">
+      <element id="artifact" artifact-name="gfax-api:war exploded" />
+    </root>
+  </artifact>
+</component>

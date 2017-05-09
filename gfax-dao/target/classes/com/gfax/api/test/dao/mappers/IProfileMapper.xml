@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gfax.api.test.dao.IProfileMapper" >
+  <resultMap id="BaseResultMap" type="com.gfax.api.test.model.IProfile" >
+    <id column="umid" property="umid" jdbcType="VARCHAR" />
+    <id column="username" property="username" jdbcType="VARCHAR" />
+    <result column="db" property="db" jdbcType="VARCHAR" />
+    <result column="passwd" property="passwd" jdbcType="VARCHAR" />
+    <result column="des_passwd" property="desPasswd" jdbcType="VARCHAR" />
+    <result column="login" property="login" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="iswhitelistip" property="iswhitelistip" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    umid, username, db, passwd, des_passwd, login, status, iswhitelistip
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.gfax.api.test.model.IProfileKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from iprofile
+    where umid = #{umid,jdbcType=VARCHAR}
+      and username = #{username,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.gfax.api.test.model.IProfileKey" >
+    delete from iprofile
+    where umid = #{umid,jdbcType=VARCHAR}
+      and username = #{username,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gfax.api.test.model.IProfile" >
+    insert into iprofile (umid, username, db, 
+      passwd, des_passwd, login, 
+      status, iswhitelistip)
+    values (#{umid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{db,jdbcType=VARCHAR}, 
+      #{passwd,jdbcType=VARCHAR}, #{desPasswd,jdbcType=VARCHAR}, #{login,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{iswhitelistip,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gfax.api.test.model.IProfile" >
+    insert into iprofile
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="umid != null" >
+        umid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="db != null" >
+        db,
+      </if>
+      <if test="passwd != null" >
+        passwd,
+      </if>
+      <if test="desPasswd != null" >
+        des_passwd,
+      </if>
+      <if test="login != null" >
+        login,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="iswhitelistip != null" >
+        iswhitelistip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="umid != null" >
+        #{umid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="db != null" >
+        #{db,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null" >
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="desPasswd != null" >
+        #{desPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="login != null" >
+        #{login,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="iswhitelistip != null" >
+        #{iswhitelistip,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gfax.api.test.model.IProfile" >
+    update iprofile
+    <set >
+      <if test="db != null" >
+        db = #{db,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null" >
+        passwd = #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="desPasswd != null" >
+        des_passwd = #{desPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="login != null" >
+        login = #{login,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="iswhitelistip != null" >
+        iswhitelistip = #{iswhitelistip,jdbcType=INTEGER},
+      </if>
+    </set>
+    where umid = #{umid,jdbcType=VARCHAR}
+      and username = #{username,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gfax.api.test.model.IProfile" >
+    update iprofile
+    set db = #{db,jdbcType=VARCHAR},
+      passwd = #{passwd,jdbcType=VARCHAR},
+      des_passwd = #{desPasswd,jdbcType=VARCHAR},
+      login = #{login,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      iswhitelistip = #{iswhitelistip,jdbcType=INTEGER}
+    where umid = #{umid,jdbcType=VARCHAR}
+      and username = #{username,jdbcType=VARCHAR}
+  </update>
+</mapper>
