@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,10 +23,8 @@ import java.util.Map;
  */
 public class BaseController {
 
-    @Autowired
     HttpServletRequest request;
 
-    @Autowired
     HttpServletResponse response;
 
     private ModelAndView modelAndView;
@@ -46,6 +45,18 @@ public class BaseController {
 
     public HttpSession getSession() {
         return getRequest() == null ? null : getRequest().getSession();
+    }
+
+    /**
+     * 设置 request 和 response
+     * @param request
+     * @param response
+     */
+    @ModelAttribute
+    public void setReqAndRes(HttpServletRequest request,
+                             HttpServletResponse response) {
+        this.request = request;
+        this.response = response;
     }
 
     @InitBinder
